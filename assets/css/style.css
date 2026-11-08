@@ -997,6 +997,12 @@ html.intro-on .hero-video { opacity: 0; }
   box-shadow: 0 40px 70px -40px rgba(17, 49, 83, .55), 0 2px 4px rgba(17, 49, 83, .08);
 }
 .postcard-front { transform: rotateY(180deg); }
+/* backface-visibility alone isn't enough: Safari lets the tilted postmark show
+   through onto the photo. Hide whichever face is turned away, switching at
+   .13s, when the eased 1s turn passes edge-on (90deg). */
+.postcard-face { transition: visibility 0s linear .13s; }
+.postcard.is-flipped .postcard-back,
+.postcard:not(.is-flipped) .postcard-front { visibility: hidden; }
 
 .postcard-back {
   display: grid;
@@ -1139,7 +1145,6 @@ a.pc-line:hover { color: #1B4470; text-decoration: underline; text-underline-off
   .js .stamp-item.reveal .stamp,
   .js .post.reveal { opacity: 1; transform: rotate(var(--tilt, var(--swing, 0deg))); }
   .postcard.is-flipped .postcard-inner { transform: none; }
-  .postcard.is-flipped .postcard-back { visibility: hidden; }
-  .postcard-front { transform: none; visibility: hidden; }
-  .postcard.is-flipped .postcard-front { visibility: visible; }
+  .postcard-face { transition-delay: 0s !important; }
+  .postcard-front { transform: none; }
 }
