@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seawall Beach Cottages | Year-round cottages on St. Mary's Bay, Nova Scotia</title>
+  <meta name="description" content="Year-round cottages in Rossway on the Digby Neck, Nova Scotia, overlooking St. Mary's Bay. A five-minute walk to the beach for swimming, snorkeling, kayaking, rockhounding and hiking the Redhead Cliffs.">
+  <meta name="theme-color" content="#F1EFE4">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Seawall Beach Cottages">
+  <meta property="og:description" content="Year-round cottages overlooking St. Mary's Bay in Rossway, Nova Scotia. Five minutes' walk to the beach.">
+  <meta property="og:image" content="assets/img/painting-sm.webp">
+
+  <link rel="icon" type="image/png" href="assets/brand/sbc_logo_darkblue.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300..600&family=Marcellus&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/painting.webp" imagesrcset="assets/img/painting-sm.webp 1200w, assets/img/painting.webp 2400w" imagesizes="100vw">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    // Decide before first paint whether the intro plays (once per visit, never with reduced motion).
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = false;
+      try { seen = sessionStorage.getItem('sbc-intro') === '1'; } catch (e) {}
+      if (!reduce && !seen) d.classList.add('intro-on');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Seawall Beach Cottages",
+    "description": "Year-round coastal cottages overlooking St. Mary's Bay, a five-minute walk from the beach.",
+    "telephone": "+1-902-308-8134",
+    "email": "vantassel@seawallbeachdigby.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rossway",
+      "addressRegion": "NS",
+      "addressCountry": "CA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 44.579, "longitude": -65.915 },
+    "sameAs": ["https://www.vrbo.com/en-ca/cottage-rental/p489291vb"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Intro: the logo inks in, then the watercolour blooms open onto the hero -->
+  <div class="intro" aria-hidden="true">
+    <svg class="intro-paper" width="100%" height="100%">
+      <defs>
+        <filter id="bloom-edge" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="8" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G"/>
+          <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <mask id="bloom-mask">
+          <rect width="100%" height="100%" fill="#fff"/>
+          <circle class="bloom-hole" cx="50%" cy="50%" r="0" fill="#000" filter="url(#bloom-edge)"/>
+        </mask>
+      </defs>
+      <rect width="100%" height="100%" fill="#F1EFE4" mask="url(#bloom-mask)"/>
+    </svg>
+    <img class="intro-logo" src="assets/brand/logo-navy.svg" alt="">
+  </div>
+
+  <header class="site-nav" data-nav>
+    <nav class="nav-inner" aria-label="Main">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul class="nav-links nav-left">
+        <li><a href="#top" aria-current="page">Home</a></li>
+        <li><a href="#welcome">About us</a></li>
+      </ul>
+      <a class="nav-logo" href="#top">
+        <img src="assets/brand/logo-navy.svg" alt="Seawall Beach Cottages, Digby N.S." width="1552" height="1232">
+      </a>
+      <ul class="nav-links nav-right">
+        <!-- Rentals and Book now point at the Vrbo listing until the rentals page is built -->
+        <li><a href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Rentals</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+      <a class="nav-book" href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Book</a>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#welcome">About us</a></li>
+        <li><a href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Rentals</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/img/painting.webp" srcset="assets/img/painting-sm.webp 1200w, assets/img/painting.webp 2400w" sizes="100vw" alt="" width="2400" height="1607" fetchpriority="high">
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title" class="hero-title">Wake up to St.&nbsp;Mary's&nbsp;Bay</h1>
+          <p class="hero-lede">Year-round cottages in Rossway on the Digby Neck, Nova Scotia. The beach is a five-minute walk from your door.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Book now</a>
+            <a class="btn-text" href="#shore">Walk the shore with us</a>
+          </div>
+        </div>
+
+        <figure class="hero-video">
+          <div class="arch">
+            <video class="arch-video" autoplay muted loop playsinline preload="auto" poster="assets/video/kayaking-poster.jpg">
+              <source src="assets/video/kayaking.mp4" type="video/mp4">
+            </video>
+            <div class="vid-controls">
+              <button class="vid-btn" type="button" data-video-toggle aria-label="Pause video">
+                <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+              </button>
+              <button class="vid-btn" type="button" data-video-sound aria-label="Turn sound on">
+                <svg class="i-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg>
+                <svg class="i-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+              </button>
+            </div>
+          </div>
+          <figcaption>Kayaking along the red cliffs of St. Mary's Bay</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- WELCOME + AMENITY STAMPS -->
+    <section class="welcome" id="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-head">
+        <h2 id="welcome-title" class="h2">A quiet cottage with the bay out&nbsp;front</h2>
+        <p>Seawall Beach Cottages sit above the shore in Rossway, looking out over St. Mary's Bay. Mornings start with the sun coming up over the water. A five-minute walk takes you down to the beach, where you can swim, snorkel, paddle, or comb the stones for treasures.</p>
+      </div>
+
+      <ul class="stamps" role="list">
+        <li class="stamp-item" style="--tilt:-3deg">
+          <figure class="stamp">
+            <div class="stamp-face">
+              <img src="assets/img/porch.webp" alt="Adirondack chairs on the cottage porch looking out over the bay" loading="lazy">
+              <span class="stamp-value">Bay view</span>
+            </div>
+          </figure>
+          <h3>Ocean views</h3>
+          <p>Watch the bay from the porch, morning to night.</p>
+        </li>
+        <li class="stamp-item" style="--tilt:2deg">
+          <figure class="stamp">
+            <div class="stamp-face">
+              <img src="assets/img/beach-sunrise-dog.webp" alt="Footprints and a dog on the sand at sunrise" loading="lazy">
+              <span class="stamp-value">5 min</span>
+            </div>
+          </figure>
+          <h3>Beach nearby</h3>
+          <p>Five minutes on foot to swimming, snorkeling and kayaking.</p>
+        </li>
+        <li class="stamp-item" style="--tilt:-1.5deg">
+          <figure class="stamp">
+            <div class="stamp-face">
+              <img src="assets/img/night-fire-porch.webp" alt="The covered porch at night with the fire table lit" loading="lazy">
+              <span class="stamp-value">Rossway</span>
+            </div>
+          </figure>
+          <h3>Private setting</h3>
+          <p>No crowds. Just the porch, the fire table and the sound of the water.</p>
+        </li>
+        <li class="stamp-item" style="--tilt:3deg">
+          <figure class="stamp">
+            <div class="stamp-face">
+              <img src="assets/img/pastel-sky.webp" alt="A soft pink sky over the bay at dawn" loading="lazy">
+              <span class="stamp-value">Dawn</span>
+            </div>
+          </figure>
+          <h3>Peaceful escape</h3>
+          <p>Sunrise on the beach, sunset on the porch, and nowhere you have to be.</p>
+        </li>
+        <li class="stamp-item" style="--tilt:-2.5deg">
+          <figure class="stamp">
+            <div class="stamp-face">
+              <img src="assets/img/winter-ice-cliffs.webp" alt="Red cliffs hung with ice and snow in winter" loading="lazy">
+              <span class="stamp-value">12 months</span>
+            </div>
+          </figure>
+          <h3>Open year round</h3>
+          <p>Summer swims, autumn colour, frozen waterfalls in winter.</p>
+        </li>
+      </ul>
+
+      <svg class="postmark" viewBox="0 0 220 120" aria-hidden="true">
+        <defs><path id="pm-arc" d="M27,60 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0"/></defs>
+        <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="60" cy="60" r="24" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <text font-size="9.5" letter-spacing="1.4" fill="currentColor"><textPath href="#pm-arc" startOffset="0">ROSSWAY · NOVA SCOTIA ·</textPath></text>
+        <text x="60" y="64" text-anchor="middle" font-size="10" fill="currentColor">N.S.</text>
+        <path d="M112 38c12-8 24 8 36 0s24-8 36 0 24 8 34 0M112 60c12-8 24 8 36 0s24-8 36 0 24 8 34 0M112 82c12-8 24 8 36 0s24-8 36 0 24 8 34 0" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </section>
+
+    <!-- TIDE PLANNER -->
+    <section class="tides" id="tides" aria-labelledby="tides-title">
+      <div class="tides-head">
+        <h2 id="tides-title" class="h2">Plan your day around the&nbsp;tide</h2>
+        <p>St. Mary's Bay rises and falls about five metres, twice a day. Low tide opens up the sea floor for rockhounding and wandering the flats. High tide brings the water up the beach for kayaking, swimming and snorkeling.</p>
+      </div>
+
+      <div class="tide-card">
+        <div class="tide-top">
+          <div class="tide-status" aria-live="polite">
+            <p class="tide-status-main" data-tide-headline>Loading today's tides…</p>
+            <p class="tide-status-sub" data-tide-sub></p>
+          </div>
+          <div class="tide-controls">
+            <div class="tide-days" role="group" aria-label="Choose a day" data-tide-days></div>
+            <button class="btn-text tide-now" type="button" data-tide-now hidden>Back to now</button>
+          </div>
+        </div>
+
+        <!-- Illustrated cross-section of the shore; JS moves the water, sun and kayak -->
+        <div class="tide-scene">
+          <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" role="img" aria-labelledby="scene-title" data-scene>
+            <title id="scene-title">Illustration of the cottage, seawall and beach with the water at the selected tide height</title>
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#CFE0EA" data-sky-top/>
+                <stop offset="1" stop-color="#F3E3D6" data-sky-bottom/>
+              </linearGradient>
+              <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#9DBFD3" data-sea-top/>
+                <stop offset="1" stop-color="#7FA5BE" data-sea-bottom/>
+              </linearGradient>
+              <filter id="paint" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+              </filter>
+              <radialGradient id="sunglow"><stop offset="0" stop-color="#FBE6C4" stop-opacity=".9"/><stop offset="1" stop-color="#FBE6C4" stop-opacity="0"/></radialGradient>
+            </defs>
+
+            <rect width="1200" height="420" fill="url(#sky)"/>
+            <g data-sun>
+              <circle r="70" fill="url(#sunglow)"/>
+              <circle r="24" fill="#F8DDB0"/>
+            </g>
+
+            <!-- the bay stretching away to the far shore -->
+            <rect x="0" y="276" width="1200" height="150" fill="#C9DBE4" data-sea-far/>
+            <g filter="url(#paint)">
+              <!-- far shore across the bay -->
+              <path d="M330 282v-8c60-6 120-12 190-9s140 10 220 4 160-14 240-12 150 6 220 3v22z" fill="#AFC3BE"/>
+              <!-- red headland -->
+              <path d="M1200 420V158c-60-4-118-2-160 2-22 2-34 14-38 32l-6 46-10 182z" fill="#D49A84"/>
+              <path d="M1006 214c56 4 130 0 194 4M1003 246c64 3 130-1 197 2M998 282c70 3 140 0 202 3M995 318c70 2 140-1 205 2" fill="none" stroke="#BF7E69" stroke-width="2" opacity=".55"/>
+              <path d="M1002 166c40-10 120-12 198-8v-8c-80-4-160-2-198 8z" fill="#9FB78E"/>
+              <path d="M1060 150l9-26 9 26zM1100 152l7-20 7 20zM1150 150l10-30 10 30z" fill="#6E8C77"/>
+            </g>
+
+            <!-- the water (behind the beach) -->
+            <g data-water>
+              <rect x="0" y="330" width="1200" height="120" fill="url(#sea)" data-water-body/>
+              <path d="" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" data-water-line/>
+            </g>
+
+            <g filter="url(#paint)">
+              <!-- beach -->
+              <path d="M236 296L300 300L1200 395V420H236z" fill="#E6C2AA"/>
+              <path d="M300 300L1200 395" fill="none" stroke="#D5A88D" stroke-width="3"/>
+              <!-- stones and agates along the beach -->
+              <g data-stones>
+                <ellipse cx="420" cy="318" rx="9" ry="5" fill="#9C8178"/>
+                <ellipse cx="452" cy="322" rx="6" ry="4" fill="#C8A585"/>
+                <ellipse cx="520" cy="329" rx="8" ry="4.5" fill="#857271"/>
+                <ellipse cx="575" cy="336" rx="5" ry="3.5" fill="#E7A584"/>
+                <ellipse cx="640" cy="342" rx="10" ry="5" fill="#A38C80"/>
+                <ellipse cx="702" cy="349" rx="5" ry="3.5" fill="#E9D7C2"/>
+                <ellipse cx="760" cy="355" rx="7" ry="4" fill="#E39C7F"/>
+                <ellipse cx="830" cy="362" rx="9" ry="5" fill="#8E7B75"/>
+                <ellipse cx="905" cy="370" rx="6" ry="4" fill="#D9B48D"/>
+                <ellipse cx="980" cy="378" rx="10" ry="5" fill="#9A857E"/>
+                <ellipse cx="1060" cy="386" rx="6" ry="3.5" fill="#E7A584"/>
+                <ellipse cx="1130" cy="392" rx="9" ry="4.5" fill="#8F7C77"/>
+              </g>
+              <!-- seawall boulders -->
+              <g stroke="#B3AA9E" stroke-width="1.5">
+                <path d="M226 214c14-12 38-10 46 4 8 14-2 30-22 30s-34-20-24-34z" fill="#DCD6CD"/>
+                <path d="M216 250c10-8 26-4 28 8s-6 22-18 22-18-20-10-30z" fill="#C9C1B6"/>
+                <path d="M246 252c16-10 40-6 46 10 6 16-8 28-26 28s-32-24-20-38z" fill="#D2CBC1"/>
+                <path d="M268 286c12-10 34-6 40 8 6 14-6 24-22 24s-28-20-18-32z" fill="#DCD6CD"/>
+              </g>
+            </g>
+
+            <!-- kayak, floats just past the waterline -->
+            <g data-kayak>
+              <path d="M-46 0c20 7 72 7 92 0-14 9-78 9-92 0z" fill="#E36F5E"/>
+              <path d="M-46 0c20-4 72-4 92 0" fill="none" stroke="#F4C7BA" stroke-width="2"/>
+              <circle cx="0" cy="-12" r="6" fill="#F2C94C"/>
+              <path d="M-4 -6h8v6h-8z" fill="#F2C94C"/>
+              <path d="M-26 -18L26 4" stroke="#1E3A5A" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- the bank and cottage -->
+            <g filter="url(#paint)">
+              <path d="M0 420V204h222c14 0 22 10 26 26l26 190z" fill="#CDB59C"/>
+              <path d="M0 204h222c10 0 16 4 20 10H0z" fill="#A6BE92"/>
+              <g transform="translate(48 132)">
+                <rect x="88" y="-4" width="10" height="20" fill="#8C6F64"/>
+                <path d="M-6 26L62 -8 130 26z" fill="#6C7E92"/>
+                <rect x="4" y="24" width="116" height="48" fill="#C9665B"/>
+                <path d="M4 34h116M4 44h116M4 54h116M4 64h116" stroke="#B4554B" stroke-width="1.5" opacity=".6"/>
+                <rect x="18" y="36" width="20" height="18" fill="#F6F0E2" data-window/>
+                <rect x="84" y="36" width="20" height="18" fill="#F6F0E2" data-window/>
+                <rect x="52" y="42" width="18" height="30" fill="#7D4B45"/>
+                <path d="M120 36l34 8v4l-34-7z" fill="#6C7E92"/>
+                <path d="M151 47v25" stroke="#F6F0E2" stroke-width="3"/>
+              </g>
+            </g>
+
+            <!-- night: dim the whole scene, then the moon and lit windows sit on top -->
+            <rect width="1200" height="420" fill="#14263F" opacity="0" data-night/>
+            <g data-moon opacity="0">
+              <circle r="15" fill="#F4F1E6"/>
+              <circle r="15" cx="7" cy="-4" fill="#2A4566" data-moon-shade/>
+            </g>
+            <g data-glow opacity="0">
+              <circle cx="76" cy="177" r="22" fill="#F6D58E" opacity=".25"/>
+              <circle cx="142" cy="177" r="22" fill="#F6D58E" opacity=".25"/>
+              <rect x="66" y="168" width="20" height="18" fill="#F6D58E"/>
+              <rect x="132" y="168" width="20" height="18" fill="#F6D58E"/>
+            </g>
+
+            <!-- tide gauge on the right -->
+            <g class="gauge" data-gauge>
+              <rect x="1150" y="198" width="10" height="210" fill="#F6F0E2" stroke="#1E3A5A" stroke-width="1.5"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- 24-hour tide curve; drag or use arrow keys to scrub -->
+        <div class="tide-chart-wrap">
+          <div class="tide-chart" data-tide-chart tabindex="0" role="slider" aria-label="Time of day" aria-valuemin="0" aria-valuemax="1439" aria-valuenow="0" aria-valuetext=""></div>
+          <div class="tide-tip" data-tide-tip hidden></div>
+        </div>
+
+        <ol class="tide-events" data-tide-events aria-label="Tide and sun times for the selected day"></ol>
+
+        <div class="tide-plan">
+          <div class="plan-col" data-plan="low">
+            <h3>Best at low tide</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l4 6-9 11L3 10z"/><path d="M3 10h18M9 4l3 17 3-17"/></svg>Rockhound the beach for agates, jasper and sea glass</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16c3-2 5 2 8 0s5 2 8 0 3-1 3-1M3 11c3-2 5 2 8 0s5 2 8 0"/></svg>Walk out across the rippled sand flats and tide pools</li>
+            </ul>
+          </div>
+          <div class="plan-col" data-plan="high">
+            <h3>Best at high tide</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 15c5 2 15 2 20 0-4 3-16 3-20 0z"/><path d="M5 6l14 12"/><circle cx="12" cy="9.5" r="1.8"/></svg>Kayak along the red cliffs</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="16" cy="6" r="2"/><path d="M4 13l5-4 4 3 3-2M2 18c3-2 5 2 8 0s5 2 8 0 3-1 4-1"/></svg>Swim off the beach</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18v5a3 3 0 0 1-3 3h-3l-2-2h-2l-2 2H6a3 3 0 0 1-3-3z"/><path d="M19 9V4"/></svg>Snorkel in the clear shallows</li>
+            </ul>
+          </div>
+          <div class="plan-col" data-plan="any">
+            <h3>Any tide</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg>Hike the trail along the Redhead Cliffs</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18h20M6 18a6 6 0 0 1 12 0M12 4v3M4.9 8.9l2 2M19.1 8.9l-2 2"/></svg><span>Catch sunrise and sunset on the beach<span class="plan-sun" data-plan-sun></span></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="tide-credit" data-tide-credit>Tide predictions for East Sandy Cove on St. Mary's Bay, from <a href="https://www.tides.gc.ca/" target="_blank" rel="noopener">Fisheries and Oceans Canada</a>. Times are Atlantic time. Not for navigation.</p>
+      </div>
+    </section>
+
+    <!-- SHORE WALK: horizontal scroll along the shore -->
+    <section class="shore" id="shore" aria-labelledby="shore-title" data-shore>
+      <div class="shore-sticky">
+        <div class="shore-head">
+          <h2 id="shore-title" class="h2">From the porch to the&nbsp;cliffs</h2>
+          <p>Here's the walk from the cottage, and what you'll find along the shore.</p>
+        </div>
+        <div class="shore-track" data-shore-track>
+          <svg class="shore-trail" aria-hidden="true" preserveAspectRatio="none" data-shore-trail><path d="" data-trail-path/></svg>
+          <ol class="shore-stops" role="list">
+            <li class="stop stop--tall">
+              <img src="assets/img/porch.webp" alt="Two Adirondack chairs on the porch with the bay beyond" loading="lazy">
+              <h3>The porch</h3>
+              <p>Start with coffee in an Adirondack chair and the bay laid out in front of you.</p>
+            </li>
+            <li class="stop stop--wide stop--low">
+              <img src="assets/img/seawall-sunset.webp" alt="Large boulders of the seawall along the water at golden hour" loading="lazy">
+              <h3>The seawall</h3>
+              <p>Big boulders line the shore. At high tide the waves wash right up against them.</p>
+            </li>
+            <li class="stop stop--tall stop--high">
+              <img src="assets/img/beach-sunrise-dog.webp" alt="Footprints across the sand toward the rising sun" loading="lazy">
+              <h3>The beach</h3>
+              <p>Five minutes on foot and you're on the sand. Sunrise here is worth the early alarm.</p>
+            </li>
+            <li class="stop stop--wide">
+              <img src="assets/img/low-tide-ripples.webp" alt="Rippled sand and shallow pools at low tide under a wide blue sky" loading="lazy">
+              <h3>The tide flats</h3>
+              <p>When the tide goes out, the bay leaves rippled sand and shallow pools to wander through.</p>
+            </li>
+            <li class="stop stop--square stop--low">
+              <img src="assets/img/rocky-beach.webp" alt="A cobble beach of rounded stones beside the water" loading="lazy">
+              <h3>Beach treasures</h3>
+              <p>Rockhounds, bring a bucket. The cobble beach is full of colourful stones.</p>
+            </li>
+            <li class="stop stop--wide stop--high">
+              <img src="assets/img/red-cliff-cave.webp" alt="Red sandstone cliffs above a stony beach" loading="lazy">
+              <h3>The Redhead Cliffs</h3>
+              <p>Red sandstone cliffs run along the shore. Hike along the top or paddle along the bottom.</p>
+            </li>
+            <li class="stop stop--tall stop--video">
+              <video muted loop playsinline preload="none" poster="assets/video/waterfall-poster.jpg" data-inview-video aria-label="Video of a waterfall pouring off the red cliffs onto the beach">
+                <source src="assets/video/waterfall.mp4" type="video/mp4">
+              </video>
+              <h3>The waterfall</h3>
+              <p>A stream pours off the cliff edge, straight down onto the stones.</p>
+            </li>
+            <li class="stop stop--wide stop--low">
+              <img src="assets/img/winter-ice-cliffs.webp" alt="The red cliffs covered in ice and snow in winter" loading="lazy">
+              <h3>In winter</h3>
+              <p>Come back in January and the same cliffs hang with ice. We're open all year.</p>
+            </li>
+            <li class="stop stop--square stop--high">
+              <img src="assets/img/night-fire-porch.webp" alt="The porch fire table glowing at night" loading="lazy">
+              <h3>Back home</h3>
+              <p>Light the fire table and watch the bay go dark.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL CLOTHESLINE -->
+    <section class="social" id="social" aria-labelledby="social-title">
+      <div class="social-head">
+        <h2 id="social-title" class="h2">Fresh from the&nbsp;shore</h2>
+        <p>We post what the bay is up to on Facebook and Instagram: ice in February, kayaks in July, and plenty of sunrises in between.</p>
+        <div class="social-follow">
+          <a class="btn btn-outline" href="https://www.facebook.com/" target="_blank" rel="noopener" data-fb-link>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg>
+            Follow on Facebook
+          </a>
+          <a class="btn btn-outline" href="https://www.instagram.com/" target="_blank" rel="noopener" data-ig-link>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="line-wrap" data-lenis-prevent-horizontal>
+        <div class="line">
+          <svg class="line-rope" viewBox="0 0 1600 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q800 86 1600 14" /></svg>
+          <ul class="posts" role="list" data-posts></ul>
+        </div>
+      </div>
+      <p class="social-note">Preview posts. The live feed connects once the Facebook and Instagram accounts are linked.</p>
+    </section>
+
+    <!-- CONTACT POSTCARD -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="h2 contact-title">Drop us a&nbsp;line</h2>
+
+      <div class="postcard" data-postcard>
+        <div class="postcard-inner">
+          <!-- back of the card: message + address -->
+          <div class="postcard-face postcard-back">
+            <div class="pc-message">
+              <p class="pc-hand">Hi from Rossway!</p>
+              <p class="pc-hand">This stretch of St. Mary's Bay is our favourite place in the world, and we'd love to share it with you. Come for a weekend or a week, in any season.</p>
+              <p class="pc-hand">See you on the beach,</p>
+              <p class="pc-hand pc-sign">The Van Tassels</p>
+              <button class="btn-text pc-flip" type="button" data-flip aria-controls="postcard-front">Meet your hosts</button>
+            </div>
+            <div class="pc-divider" aria-hidden="true"></div>
+            <div class="pc-address">
+              <div class="pc-stamp-row">
+                <div class="pc-stamp" aria-hidden="true"><img src="assets/img/painting-sm.webp" alt=""></div>
+                <svg class="pc-postmark" viewBox="0 0 120 120" aria-hidden="true">
+                  <defs><path id="pm-arc-2" d="M27,60 a33,33 0 1,1 66,0 a33,33 0 1,1 -66,0"/></defs>
+                  <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="60" cy="60" r="24" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                  <text font-size="9.5" letter-spacing="1.1" fill="currentColor"><textPath href="#pm-arc-2">ROSSWAY · OPEN YEAR ROUND ·</textPath></text>
+                  <text x="60" y="64" text-anchor="middle" font-size="10" fill="currentColor">N.S.</text>
+                </svg>
+              </div>
+              <address class="pc-lines">
+                <span class="pc-line pc-line--name">Seawall Beach Cottages</span>
+                <span class="pc-line">Rossway, Digby Neck, Nova Scotia</span>
+                <a class="pc-line" href="tel:+19023088134"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(902) 308-8134</a>
+                <a class="pc-line" href="tel:+19022490345"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(902) 249-0345</a>
+                <a class="pc-line" href="mailto:vantassel@seawallbeachdigby.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg>vantassel@seawallbeachdigby.com</a>
+              </address>
+              <a class="btn btn-primary pc-book" href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Book your stay</a>
+            </div>
+          </div>
+          <!-- front of the card: the owners -->
+          <div class="postcard-face postcard-front" id="postcard-front">
+            <img src="assets/img/owners.webp" alt="The Van Tassels smiling in front of a small excavator on the cottage property" loading="lazy">
+            <p class="pc-front-caption">Your hosts, the Van Tassels</p>
+            <button class="btn-text pc-flip pc-flip--back" type="button" data-flip>Turn the card over</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img class="footer-logo" src="assets/brand/logo-white.svg" alt="Seawall Beach Cottages, Digby N.S." width="1552" height="1232" loading="lazy">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#welcome">About us</a>
+        <a href="https://www.vrbo.com/en-ca/cottage-rental/p489291vb" target="_blank" rel="noopener">Rentals</a>
+        <a href="#contact">Contact us</a>
+      </nav>
+      <p class="footer-place">Rossway, Digby Neck, Nova Scotia, overlooking St. Mary's Bay</p>
+      <p class="footer-fine">© <span data-year>2026</span> Seawall Beach Cottages. Tide data courtesy of Fisheries and Oceans Canada.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/sun.js" defer></script>
+  <script src="assets/js/tides.js" defer></script>
+  <script src="assets/js/social.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

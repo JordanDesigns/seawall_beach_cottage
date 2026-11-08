@@ -1,0 +1,16 @@
+# Client-supplied source material, not part of the published site.
+# Background_TIFF.tif alone is 223 MB (GitHub rejects files over 100 MB);
+# the site uses the compressed copies in assets/.
+/Package/
+
+# The client brief
+/read_me.txt
+
+# Local tooling
+.claude/
+node_modules/
+
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store
