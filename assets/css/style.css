@@ -1058,9 +1058,17 @@ a.pc-line:hover { color: #1B4470; text-decoration: underline; text-underline-off
 @media (min-width: 900px) {
   .postcard-inner { aspect-ratio: 3 / 2; }
 }
+/* Caption and flip button share the bottom edge when there's room;
+   on narrow cards the button wraps onto its own line under the caption. */
 .postcard-front {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 24px;
   overflow: hidden;
 }
 .postcard-front img {
@@ -1073,24 +1081,18 @@ a.pc-line:hover { color: #1B4470; text-decoration: underline; text-underline-off
   object-position: 50% 30%;
   border-radius: 2px;
 }
-.pc-front-caption, .pc-flip--back { position: relative; }
-.pc-front-caption {
-  grid-area: 1 / 1;
-  align-self: end;
-  justify-self: start;
-  margin: 0 0 22px 22px;
+.pc-front-caption, .pc-flip--back {
+  position: relative;
+  margin: 0;
   background: var(--card);
   padding: 10px 16px;
+}
+.pc-front-caption {
   font-family: var(--display);
   font-size: 1.25rem;
 }
 .pc-flip--back {
-  grid-area: 1 / 1;
-  align-self: end;
-  justify-self: end;
-  margin: 0 22px 26px 0;
-  background: var(--card);
-  padding: 10px 16px;
+  align-self: center;
   text-underline-offset: 4px;
 }
 
