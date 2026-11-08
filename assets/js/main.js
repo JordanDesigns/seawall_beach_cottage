@@ -242,18 +242,19 @@
   var year = $('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- intro: logo inks in, watercolour blooms open, logo lands in the nav ---------- */
+  /* ---------- intro: the painting washes in, the logo inks in over it, then glides up into the nav ---------- */
   function runIntro() {
     var intro = $('.intro');
     var logo = $('.intro-logo', intro);
-    var hole = $('.bloom-hole', intro);
+    var wash = $('.intro-wash', intro);
+    var paint = $('.hero-art img');
     var navLogo = $('.nav-logo img');
     var heroBits = $$('.hero-copy > *');
     var heroVid = $('.hero-video');
     var navBits = $$('.nav-links, .nav-toggle, .nav-book');
     var anims = [];
     var timers = [];
-    var bloomRaf = 0;
+    var started = false;
     var finished = false;
 
     if (lenis) lenis.stop();
@@ -261,7 +262,7 @@
 
     function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
     function anim(elm, kf, opts) {
-      if (!elm.animate) return null;
+      if (!elm || !elm.animate) return null;
       var a = elm.animate(kf, opts); anims.push(a); return a;
     }
 
@@ -269,10 +270,9 @@
       if (finished) return;
       finished = true;
       timers.forEach(clearTimeout);
-      cancelAnimationFrame(bloomRaf);
       try { sessionStorage.setItem('sbc-intro', '1'); } catch (e) {}
       var cleanup = function () {
-        doc.classList.remove('intro-on');
+        doc.classList.remove('intro-on', 'intro-reveal');
         anims.forEach(function (a) { a.cancel(); });
         intro.remove();
         if (lenis) lenis.start();
@@ -281,10 +281,19 @@
         placePostmark();
       };
       if (fast && intro.animate) {
-        intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' }).onfinish = cleanup;
-        [navLogo, heroVid].concat(heroBits, navBits).forEach(function (el) {
-          if (el && el.animate) el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, fill: 'forwards' });
+        // Skipped: run whatever is mid-flight to its end in about a quarter second,
+        // and fade in anything that hasn't started, so nothing jumps.
+        doc.classList.add('intro-reveal');
+        anims.forEach(function (a) {
+          var left = a.effect.getComputedTiming().endTime - (a.currentTime || 0);
+          if (left > 0 && a.updatePlaybackRate) a.updatePlaybackRate(Math.max(1, left / 220));
         });
+        [paint, navLogo, heroVid].concat(heroBits, navBits).forEach(function (el) {
+          if (el && el.animate && !(el.getAnimations && el.getAnimations().length)) {
+            anims.push(el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, fill: 'forwards' }));
+          }
+        });
+        intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' }).onfinish = cleanup;
       } else {
         cleanup();
       }
@@ -299,55 +308,65 @@
     }
     ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (t) { window.addEventListener(t, skip, { passive: true }); });
 
-    // 1. the logo inks in from left to right
-    anim(logo, [
-      { WebkitMaskPosition: '100% 0', maskPosition: '100% 0', opacity: 0.2 },
-      { WebkitMaskPosition: '0% 0', maskPosition: '0% 0', opacity: 1 }
-    ], { duration: 1150, delay: 150, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'both' });
+    function start() {
+      if (started || finished) return;
+      started = true;
 
-    // 2. the paper opens in a ragged watercolour bloom
-    later(function () {
-      var maxR = Math.hypot(window.innerWidth, window.innerHeight) * 0.62 + 140;
-      var start = performance.now(), dur = 1500;
-      var step = function (now) {
-        var f = clamp((now - start) / dur, 0, 1);
-        var eased = f < 0.5 ? 4 * f * f * f : 1 - Math.pow(-2 * f + 2, 3) / 2;
-        hole.setAttribute('r', (eased * maxR).toFixed(1));
-        if (f < 1) bloomRaf = requestAnimationFrame(step);
-      };
-      bloomRaf = requestAnimationFrame(step);
-    }, 1250);
+      // On narrow screens the headline sits under the logo's path up to the nav,
+      // so hold the copy back until the logo has passed.
+      var lr = logo.getBoundingClientRect(), cr = $('.hero-copy').getBoundingClientRect();
+      var revealAt = lr.left < cr.right && lr.right > cr.left ? 2550 : 2150;
 
-    // 3. the logo glides up into its place in the nav
-    later(function () {
-      var from = logo.getBoundingClientRect();
-      var to = navLogo.getBoundingClientRect();
-      var s = to.width / from.width;
-      var glide = anim(logo, [
-        { transform: 'translate(0,0) scale(1)' },
-        { transform: 'translate(' + (to.left - from.left) + 'px,' + (to.top - from.top) + 'px) scale(' + s + ')' }
-      ], { duration: 1150, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' });
-      var swap = function () {
-        anim(navLogo, [{ opacity: 0 }, { opacity: 1 }], { duration: 10, fill: 'forwards' });
-        logo.style.visibility = 'hidden';
-      };
-      if (glide) glide.onfinish = swap; else swap();
-    }, 1500);
+      // 1. the painting washes in and slowly settles
+      anim(paint, [{ opacity: 0 }, { opacity: 1 }], { duration: 700, easing: 'ease-out', fill: 'both' });
+      anim(paint, [{ transform: 'scale(1.08)' }, { transform: 'scale(1)' }],
+        { duration: 3800, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
 
-    // 4. hero copy, video and nav arrive
-    later(function () {
-      heroBits.forEach(function (el, i) {
-        anim(el, [{ opacity: 0, transform: 'translateY(26px)' }, { opacity: 1, transform: 'none' }],
-          { duration: 1000, delay: i * 130, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
-      });
-      if (heroVid) anim(heroVid, [{ opacity: 0, transform: 'translateY(30px) scale(.96)' }, { opacity: 1, transform: 'none' }],
-        { duration: 1200, delay: 250, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
-      navBits.forEach(function (el) {
-        anim(el, [{ opacity: 0 }, { opacity: 1 }], { duration: 800, delay: 500, fill: 'both' });
-      });
-    }, 2000);
+      // 2. a pale wash spreads behind the logo, and the logo inks in from left to right
+      anim(wash, [{ opacity: 0, transform: 'scale(.82)' }, { opacity: 1, transform: 'scale(1)' }],
+        { duration: 1000, delay: 150, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
+      anim(logo, [
+        { WebkitMaskPosition: '100% 0', maskPosition: '100% 0', opacity: 0.2 },
+        { WebkitMaskPosition: '0% 0', maskPosition: '0% 0', opacity: 1 }
+      ], { duration: 1150, delay: 300, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'both' });
 
-    later(function () { finish(false); }, 3500);
+      // 3. the wash dries away and the logo glides up into its place in the nav
+      later(function () {
+        anim(wash, [{ opacity: 1 }, { opacity: 0 }], { duration: 800, easing: 'ease-in-out', fill: 'forwards' });
+        var from = logo.getBoundingClientRect();
+        var to = navLogo.getBoundingClientRect();
+        var s = to.width / from.width;
+        var glide = anim(logo, [
+          { transform: 'translate(0,0) scale(1)' },
+          { transform: 'translate(' + (to.left - from.left) + 'px,' + (to.top - from.top) + 'px) scale(' + s + ')' }
+        ], { duration: 1150, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' });
+        var swap = function () {
+          anim(navLogo, [{ opacity: 0 }, { opacity: 1 }], { duration: 10, fill: 'forwards' });
+          logo.style.visibility = 'hidden';
+        };
+        if (glide) glide.onfinish = swap; else swap();
+      }, 1650);
+
+      // 4. hero copy, video and nav arrive
+      later(function () {
+        doc.classList.add('intro-reveal');
+        heroBits.forEach(function (el, i) {
+          anim(el, [{ opacity: 0, transform: 'translateY(26px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 1000, delay: i * 130, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
+        });
+        anim(heroVid, [{ opacity: 0, transform: 'translateY(30px) scale(.96)' }, { opacity: 1, transform: 'none' }],
+          { duration: 1200, delay: 250, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
+        navBits.forEach(function (el) {
+          anim(el, [{ opacity: 0 }, { opacity: 1 }], { duration: 800, delay: 500, fill: 'both' });
+        });
+      }, revealAt);
+
+      later(function () { finish(false); }, revealAt + 1700);
+    }
+
+    // wait for the painting to decode (it's preloaded, so usually instant), but never more than 1.2s
+    var ready = paint && paint.decode ? paint.decode().catch(function () {}) : Promise.resolve();
+    Promise.race([ready, new Promise(function (r) { setTimeout(r, 1200); })]).then(start);
   }
 
   if (doc.classList.contains('intro-on')) runIntro();

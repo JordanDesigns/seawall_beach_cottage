@@ -61,21 +61,17 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Intro: the logo inks in, then the watercolour blooms open onto the hero -->
+  <!-- Intro: the painting washes in, the logo inks in over it, then glides up into the nav -->
   <div class="intro" aria-hidden="true">
-    <svg class="intro-paper" width="100%" height="100%">
+    <svg class="intro-wash" viewBox="0 0 600 440">
       <defs>
-        <filter id="bloom-edge" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="8" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G"/>
-          <feGaussianBlur stdDeviation="3"/>
+        <filter id="wash-edge" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="8" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G"/>
+          <feGaussianBlur stdDeviation="24"/>
         </filter>
-        <mask id="bloom-mask">
-          <rect width="100%" height="100%" fill="#fff"/>
-          <circle class="bloom-hole" cx="50%" cy="50%" r="0" fill="#000" filter="url(#bloom-edge)"/>
-        </mask>
       </defs>
-      <rect width="100%" height="100%" fill="#F1EFE4" mask="url(#bloom-mask)"/>
+      <ellipse cx="300" cy="220" rx="200" ry="135" fill="#F1EFE4" filter="url(#wash-edge)"/>
     </svg>
     <img class="intro-logo" src="assets/brand/logo-navy.svg" alt="">
   </div>
